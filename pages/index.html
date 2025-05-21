@@ -63,9 +63,11 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
     <script>
+        // Add this at the top of your <script> in index.html (and other pages if needed)
+    const BASE_URL = "https://to-do-app-2-83ex.onrender.com";
         async function getData(url = '', data = {}) {
             try {
-                const response = await fetch(url, {
+                const response = await fetch(BASE_URL+url, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
