@@ -57,7 +57,7 @@
         const BASE_URL = "https://to-do-app-2-83ex.onrender.com";
         async function getData(url = '', data = {}) {
             try {
-                const response = await fetch(BASE_URL+url, {
+                const response = await fetch(url, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -81,7 +81,7 @@
 
             
             let response = await getData("/signup", { email, password })
-            // console.log("Helllo")
+            console.log("Helllo")
             if(response.success){
                 console.log("Submitting the data", email, password);
                 alert("WOhooo")

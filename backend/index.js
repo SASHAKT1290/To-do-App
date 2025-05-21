@@ -15,8 +15,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log("Connected"))
-  .catch((error) => console.log("Error", error));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../pages/index.html'));
@@ -55,6 +53,7 @@ app.post('/login',async(req,res)=>{
 })
 app.post('/signup',async (req,res)=>{
     const {email,password} = req.body
+    console.log("hi")
     try{
       let existinguser=await User.findOne({email});
       if(existinguser!==null){

@@ -198,7 +198,7 @@
 
             let title = document.getElementById("title").value;
             let description = document.getElementById("content").value;
-
+            console.log("hi")
             const isuser = localStorage.getItem("user")
             if (isuser === null || isuser=="null") {
                 alert("Login Required")
@@ -224,11 +224,6 @@
         let out = document.getElementById("logout")
         out.addEventListener('click', () => {
             localStorage.setItem("user", null)
-        })
-
-        let del=document.getElementById("delete")
-        del.addEventListener('click',async()=>{
-             
         })
     </script>
 </body>
