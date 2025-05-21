@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config();
 const Note = require('./models/Note')
 const User= require('./models/User')
 const path = require('path');
@@ -10,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 try{
-  mongoose.connect('mongodb://localhost:27017/todoapp')
+  mongoose.connect(process.env.MONGODB_URI)
   console.log("Connected")
 }
 catch(error){
