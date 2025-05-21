@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Note = require('./models/Note')
 const User= require('./models/User')
+const path = require('path');
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -19,16 +20,16 @@ catch(error){
 
 
 app.get('/', (req, res) => {
-    res.sendFile("pages/index.html", { root: __dirname })
-})
+    res.sendFile(path.join(__dirname, '../pages/index.html'));
+});
 
 app.get('/login', (req, res) => {
-  res.sendFile("pages/login.html", { root: __dirname })
-})
+    res.sendFile(path.join(__dirname, '../pages/login.html'));
+});
 
 app.get('/signup', (req, res) => {
-  res.sendFile("pages/signup.html", { root: __dirname })
-})
+    res.sendFile(path.join(__dirname, '../pages/signup.html'));
+});
 
 
 //End points for API
