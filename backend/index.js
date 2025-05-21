@@ -10,15 +10,9 @@ const port = process.env.PORT || 3000
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-try{
-  mongoose.connect(process.env.MONGODB_URI)
-  console.log("Connected")
-}
-catch(error){
-  console.log("Error")
-}
-
-
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log("Connected"))
+  .catch((error) => console.log("Error", error));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../pages/index.html'));
